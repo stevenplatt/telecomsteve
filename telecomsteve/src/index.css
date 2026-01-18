@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+:root {
+  font-family: 'Lato', sans-serif;
+}
+
 html,
 body,
 #root {
@@ -13,4 +17,38 @@ body,
 body {
   margin: 0;
   background: #ffffff;
+  font-family: 'Lato', sans-serif;
+  font-size: 22px;
+  line-height: 35px;
+  color: #4a5568;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Lato', sans-serif;
+  margin: 0 0 0.5em;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 44px;
+  line-height: 1.1;
+  color: #f1c40f;
+}
+
+h2 {
+  font-size: 33px;
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: 26px;
+  line-height: 1.2;
+}
+
+h4 {
+  font-size: 22px;
+  line-height: 1.2;
 }
