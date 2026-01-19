@@ -554,14 +554,22 @@ function PortfolioItem({
             </Link>
           </Stack>
         </Box>
-        <Box flex="1" textAlign="center">
-          <Image
-            src={imageSrc}
-            alt={imageAlt}
-            maxW="300px"
-            maxH="300px"
-            mx="auto"
-          />
+        <Box flex="1" display="flex" justifyContent="center">
+          <Box
+            w="300px"
+            h="300px"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <Image
+              src={imageSrc}
+              alt={imageAlt}
+              maxW="100%"
+              maxH="100%"
+              objectFit="contain"
+            />
+          </Box>
         </Box>
       </Stack>
     </Box>
