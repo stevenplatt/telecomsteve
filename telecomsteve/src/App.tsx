@@ -119,8 +119,9 @@ function SiteLayout() {
 					h="100%"
 					w="20%"
 					minW="240px"
-					boxShadow="md"
+					boxShadow="lg"
 					bg="white"
+					border="none"
 					zIndex="base"
 					alignItems="center"
 					justifyContent="center"
@@ -166,7 +167,11 @@ function SiteLayout() {
 						<DrawerHeader textAlign="center" display="none">
 							telecomsteve
 						</DrawerHeader>
-						<DrawerBody display="flex" alignItems="center" justifyContent="center">
+						<DrawerBody
+							display="flex"
+							alignItems="center"
+							justifyContent="center"
+						>
 							<VStack gap={6} align="stretch" w="100%" maxW="320px">
 								<VStack gap={6} align="center" w="100%" textAlign="center">
 									{navLinks.map((link) => (
