@@ -166,9 +166,9 @@ function SiteLayout() {
 						<DrawerHeader textAlign="center" display="none">
 							telecomsteve
 						</DrawerHeader>
-						<DrawerBody>
-							<VStack gap={6} align="stretch">
-								<VStack gap={6} align="center" w="100%" textAlign="center" pt={12}>
+						<DrawerBody display="flex" alignItems="center" justifyContent="center">
+							<VStack gap={6} align="stretch" w="100%" maxW="320px">
+								<VStack gap={6} align="center" w="100%" textAlign="center">
 									{navLinks.map((link) => (
 										<Box key={link.label} w="100%">
 											<NavLinkItem
