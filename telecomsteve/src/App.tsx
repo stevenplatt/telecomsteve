@@ -163,20 +163,25 @@ function SiteLayout() {
 				<DrawerPositioner>
 					<DrawerContent>
 						<DrawerCloseTrigger />
-						<DrawerHeader>telecomsteve</DrawerHeader>
+						<DrawerHeader textAlign="center" display="none">
+							telecomsteve
+						</DrawerHeader>
 						<DrawerBody>
 							<VStack gap={6} align="stretch">
-								{navLinks.map((link) => (
-									<NavLinkItem
-										key={link.label}
-										to={link.to}
-										label={link.label}
-										fontSize="20px"
-										isActive={location.pathname === link.to}
-										onClick={closeDrawer}
-									/>
-								))}
-								<Box pt={8} color="gray.500" fontSize="sm">
+								<VStack gap={6} align="center" w="100%" textAlign="center" pt={12}>
+									{navLinks.map((link) => (
+										<Box key={link.label} w="100%">
+											<NavLinkItem
+												to={link.to}
+												label={link.label}
+												fontSize="20px"
+												isActive={location.pathname === link.to}
+												onClick={closeDrawer}
+											/>
+										</Box>
+									))}
+								</VStack>
+								<Box pt={8} color="gray.500" fontSize="sm" textAlign="center">
 									<Text>Template:</Text>
 									<Link
 										href="https://github.com/stevenplatt/ResearchEng-portfolio"
