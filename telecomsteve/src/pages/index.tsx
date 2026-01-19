@@ -17,7 +17,7 @@ const InternalLink = chakra(RouterLink)
 
 export function AboutPage() {
   return (
-    <VStack gap={8} textAlign="center">
+    <VStack gap={10} textAlign="center">
       <Image
         src="/img/telecomsteve.webp"
         alt="Steven Platt"
@@ -25,22 +25,46 @@ export function AboutPage() {
         objectFit="cover"
         borderRadius="full"
       />
-      <VStack gap={4}>
+      <VStack gap={6}>
         <Heading as="h1" size="lg" color="#f1c40f" fontWeight="bold">
           Steven Platt, PhD
         </Heading>
-        <Stack gap={2}>
+        <Stack gap={3}>
           <Text>Hi, I'm Steven, but you can call me telecomsteve.</Text>
           <Text>
             I am an infrastructure engineer, researcher, and creator of Stack Dyno and the Yoptio
             AI RSS Reader.
           </Text>
         </Stack>
-        <HStack gap={6} justify="center" pt={4}>
-          <Link href="https://www.linkedin.com/in/telecomsteve" target="_blank" rel="noreferrer noopener" color="blue.500">
+        <HStack gap={8} justify="center" pt={6} flexWrap="wrap">
+          <Link
+            href="https://www.linkedin.com/in/telecomsteve"
+            target="_blank"
+            rel="noreferrer noopener"
+            px={6}
+            py={2}
+            borderRadius="999px"
+            border="1px solid"
+            borderColor="blue.500"
+            color="blue.500"
+            fontWeight="600"
+            _hover={{ bg: 'blue.50' }}
+          >
             LinkedIn
           </Link>
-          <Link href="https://github.com/stevenplatt" target="_blank" rel="noreferrer noopener" color="blue.500">
+          <Link
+            href="https://github.com/stevenplatt"
+            target="_blank"
+            rel="noreferrer noopener"
+            px={6}
+            py={2}
+            borderRadius="999px"
+            border="1px solid"
+            borderColor="blue.500"
+            color="blue.500"
+            fontWeight="600"
+            _hover={{ bg: 'blue.50' }}
+          >
             GitHub
           </Link>
         </HStack>
@@ -51,7 +75,7 @@ export function AboutPage() {
 
 export function ResumePage() {
   return (
-    <Stack gap={8}>
+    <Stack gap={10}>
       <Box>
         <Heading as="h2" size="md">
           Steven Platt, PhD
@@ -77,7 +101,7 @@ export function ResumePage() {
         <Heading as="h3" size="sm" color="green">
           Areas of Expertise
         </Heading>
-        <ListRoot listStyleType="disc" gap={3} pl={6}>
+        <ListRoot listStyleType="disc" gap={4} pl={8}>
           <ListItem>
             <Text as="span" fontWeight="bold">
               Blockchain Systems Design:
@@ -108,13 +132,13 @@ export function ResumePage() {
         <Heading as="h3" size="sm" color="green">
           Experience
         </Heading>
-        <Stack gap={6} pt={2}>
+        <Stack gap={8} pt={3}>
           <Box>
             <Heading as="h4" size="sm">
               Stack Dyno
             </Heading>
             <Text fontStyle="italic">Founder, Feb 2024 - current</Text>
-            <ListRoot listStyleType="disc" gap={2} pl={6} pt={2}>
+            <ListRoot listStyleType="disc" gap={3} pl={8} pt={3}>
               <ListItem>
                 Built a Google Cloud-focused FinOps product as a monorepo with three React +
                 TypeScript apps (marketing site, customer dashboard, reseller console), including
@@ -143,7 +167,7 @@ export function ResumePage() {
               o1Labs
             </Heading>
             <Text fontStyle="italic">Lead Platform Engineer, Nov 2021 - Feb 2024</Text>
-            <ListRoot listStyleType="disc" gap={2} pl={6} pt={2}>
+            <ListRoot listStyleType="disc" gap={3} pl={8} pt={3}>
               <ListItem>
                 Led a team of 5 platform and QA engineers responsible for the core infrastructure
                 of the Mina blockchain protocol.
@@ -170,7 +194,7 @@ export function ResumePage() {
               Universitat Pompeu Fabra
             </Heading>
             <Text fontStyle="italic">Doctoral Candidate (Graduated), Aug 2017 - Sept 2021</Text>
-            <ListRoot listStyleType="disc" gap={2} pl={6} pt={2}>
+            <ListRoot listStyleType="disc" gap={3} pl={8} pt={3}>
               <ListItem>
                 Successfully defended my research thesis which proposes the use of blockchain
                 technologies to decentralize the physical layer of 5G cellular networks.
@@ -191,7 +215,7 @@ export function ResumePage() {
               Twitter Inc
             </Heading>
             <Text fontStyle="italic">Systems Engineer II, Jan 2014 - Aug 2017</Text>
-            <ListRoot listStyleType="disc" gap={2} pl={6} pt={2}>
+            <ListRoot listStyleType="disc" gap={3} pl={8} pt={3}>
               <ListItem>
                 Architected and executed the migration of legacy ISDN circuits to a modern
                 VoIP-over-IP system, reducing telecom carrier costs by 72%.
@@ -213,7 +237,7 @@ export function ResumePage() {
               Salesforce.com
             </Heading>
             <Text fontStyle="italic">Network Engineer, Jul 2012 - Jan 2014</Text>
-            <ListRoot listStyleType="disc" gap={2} pl={6} pt={2}>
+            <ListRoot listStyleType="disc" gap={3} pl={8} pt={3}>
               <ListItem>
                 Managed the deployment and global support of multi-vendor network infrastructure
                 (Cisco, Juniper, F5) for enterprise operations globally.
@@ -226,7 +250,7 @@ export function ResumePage() {
               Caterpillar Inc
             </Heading>
             <Text fontStyle="italic">IT Analyst II, Jul 2012 - Jan 2014</Text>
-            <ListRoot listStyleType="disc" gap={2} pl={6} pt={2}>
+            <ListRoot listStyleType="disc" gap={3} pl={8} pt={3}>
               <ListItem>
                 Architected and deployed distributed network solutions, ranging from
                 satellite-connected industrial IoT systems to enterprise Cisco VoIP networks across
@@ -241,7 +265,7 @@ export function ResumePage() {
         <Heading as="h3" size="sm" color="green">
           Technical Skills
         </Heading>
-        <ListRoot listStyleType="disc" gap={3} pl={6}>
+        <ListRoot listStyleType="disc" gap={4} pl={8}>
           <ListItem>
             <Text as="span" fontWeight="bold">
               Artificial Intelligence:
@@ -276,7 +300,7 @@ export function ResumePage() {
         <Heading as="h3" size="sm" color="green">
           Education
         </Heading>
-        <ListRoot listStyleType="disc" gap={2} pl={6}>
+        <ListRoot listStyleType="disc" gap={3} pl={8}>
           <ListItem>Universitat Pompeu Fabra: PhD, Blockchain Technologies</ListItem>
           <ListItem>Universitat Politecnica de Catalunya: MSc, Wireless Communications</ListItem>
           <ListItem>Illinois State University: MBA, Masters of Business Administration</ListItem>
@@ -291,7 +315,7 @@ export function ResumePage() {
 
 export function ResearchPage() {
   return (
-    <Stack gap={8}>
+    <Stack gap={10}>
       <Box>
         <Heading as="h2" size="md">
           Research Activity
@@ -303,7 +327,7 @@ export function ResearchPage() {
         <Heading as="h3" size="sm" color="#E74C3C">
           Standards Development
         </Heading>
-        <Stack gap={2} pt={2}>
+        <Stack gap={3} pt={3}>
           <Text>
             IEEE P2677.11&trade; - Standard for Blockchain-based Omnidirectional Pandemic/epidemic
             Surveillance: Access to Telecommunications Data, Project Lead, 2020-2022.
@@ -319,7 +343,7 @@ export function ResearchPage() {
         <Heading as="h3" size="sm" color="#E74C3C">
           Publications
         </Heading>
-        <Stack gap={6} pt={2}>
+        <Stack gap={8} pt={3}>
           <Box>
             <Heading as="h4" size="sm">
               &quot;Using Transition Learning to Enhance Mobile-Controlled Handover In Decentralized
@@ -455,7 +479,7 @@ export function ResearchPage() {
         <Heading as="h3" size="sm" color="#E74C3C">
           Invited Talks
         </Heading>
-        <Stack gap={2} pt={2}>
+        <Stack gap={3} pt={3}>
           <Text>
             &quot;Blockchain for Decentralized 5G Public Utility Overlay Networks&quot;,{' '}
             <Text as="span" fontStyle="italic">
@@ -516,12 +540,12 @@ function PortfolioItem({
 }: PortfolioItemProps) {
   return (
     <Box bg="white">
-      <Stack direction={{ base: 'column', lg: 'row' }} gap={8} align="center">
+      <Stack direction={{ base: 'column', lg: 'row' }} gap={10} align="center">
         <Box flex="1">
           <Heading as="h3" size="sm" color="#F1C40F">
             {title}
           </Heading>
-          <Stack gap={3} pt={2}>
+          <Stack gap={4} pt={3}>
             {description.map((paragraph) => (
               <Text key={paragraph}>{paragraph}</Text>
             ))}
@@ -546,7 +570,7 @@ function PortfolioItem({
 
 export function PortfolioPage() {
   return (
-    <Stack gap={8}>
+    <Stack gap={10}>
       <Box>
         <Heading as="h2" size="md">
           Platform Portfolio
@@ -554,7 +578,7 @@ export function PortfolioPage() {
         <Text>A selection of my infrastructure and full-stack projects.</Text>
       </Box>
 
-      <Stack gap={10}>
+      <Stack gap={12}>
         <PortfolioItem
           title="Stack Dyno"
           description={[
@@ -608,13 +632,13 @@ export function PortfolioPage() {
 
 export function NotFoundPage() {
   return (
-    <VStack gap={6} textAlign="center">
+    <VStack gap={8} textAlign="center">
       <Heading as="h1" size="lg">
         404 - Page Not Found
       </Heading>
       <Text>Oops! Looks like you've wandered into uncharted territory.</Text>
       <Text>The page you're looking for doesn't exist or has been moved.</Text>
-      <HStack gap={6} justify="center" pt={4}>
+      <HStack gap={8} justify="center" pt={6}>
         <InternalLink to="/" color="blue.500">
           Back to Home
         </InternalLink>
