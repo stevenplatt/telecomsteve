@@ -36,19 +36,12 @@ export function AboutPage() {
             AI RSS Reader.
           </Text>
         </Stack>
-        <HStack gap={10} justify="center" pt={8} flexWrap="wrap">
+        <HStack gap={10} justify="center" pt={8}>
           <Link
             href="https://www.linkedin.com/in/telecomsteve"
             target="_blank"
             rel="noreferrer noopener"
-            px={8}
-            py={3}
-            borderRadius="999px"
-            border="1px solid"
-            borderColor="blue.500"
             color="blue.500"
-            fontWeight="600"
-            _hover={{ bg: 'blue.50' }}
           >
             LinkedIn
           </Link>
@@ -56,14 +49,7 @@ export function AboutPage() {
             href="https://github.com/stevenplatt"
             target="_blank"
             rel="noreferrer noopener"
-            px={8}
-            py={3}
-            borderRadius="999px"
-            border="1px solid"
-            borderColor="blue.500"
             color="blue.500"
-            fontWeight="600"
-            _hover={{ bg: 'blue.50' }}
           >
             GitHub
           </Link>
