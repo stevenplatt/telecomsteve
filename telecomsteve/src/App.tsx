@@ -94,8 +94,8 @@ function SiteLayout() {
 					w="100%"
 					bg="white"
 					boxShadow="sm"
-					px={6}
-					py={4}
+					px={8}
+					py={6}
 				>
 					<DrawerTrigger asChild>
 						<Box
@@ -126,7 +126,7 @@ function SiteLayout() {
 					alignItems="center"
 					justifyContent="center"
 				>
-					<Stack gap={6} textAlign="center" w="100%" px={6}>
+					<Stack gap={8} textAlign="center" w="100%" px={8}>
 						{navLinks.map((link) => (
 							<NavLinkItem
 								key={link.label}
@@ -135,7 +135,7 @@ function SiteLayout() {
 								isActive={location.pathname === link.to}
 							/>
 						))}
-						<Box pt={10} color="gray.500" fontSize="sm">
+						<Box pt={12} color="gray.500" fontSize="sm">
 							<Text>Template:</Text>
 							<Link
 								href="https://github.com/stevenplatt/ResearchEng-portfolio"
@@ -151,9 +151,9 @@ function SiteLayout() {
 
 				<Box
 					ml={{ base: 0, lg: "20%" }}
-					px={{ base: 6, md: 10, lg: "10%" }}
-					pt={{ base: "120px", lg: "10%" }}
-					pb={{ base: "20%", lg: "10%" }}
+					px={{ base: 8, md: 12, lg: "12%" }}
+					pt={{ base: "140px", lg: "12%" }}
+					pb={{ base: "24%", lg: "12%" }}
 					fontSize={{ base: "18px", lg: "22px" }}
 					lineHeight={{ base: "30px", lg: "35px" }}
 				>
@@ -166,7 +166,7 @@ function SiteLayout() {
 						<DrawerCloseTrigger />
 						<DrawerHeader>telecomsteve</DrawerHeader>
 						<DrawerBody>
-							<VStack gap={4} align="stretch">
+							<VStack gap={6} align="stretch">
 								{navLinks.map((link) => (
 									<NavLinkItem
 										key={link.label}
@@ -177,7 +177,7 @@ function SiteLayout() {
 										onClick={closeDrawer}
 									/>
 								))}
-								<Box pt={6} color="gray.500" fontSize="sm">
+								<Box pt={8} color="gray.500" fontSize="sm">
 									<Text>Template:</Text>
 									<Link
 										href="https://github.com/stevenplatt/ResearchEng-portfolio"
