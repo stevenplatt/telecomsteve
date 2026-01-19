@@ -35,7 +35,7 @@ const navLinks = [
 	{ label: "Resume", to: "/resume" },
 	{ label: "Research", to: "/research" },
 	{ label: "Portfolio", to: "/portfolio" },
-	,
+	{ label: "Blog", to: "/blog" },
 ];
 
 type NavLinkItemProps = {
