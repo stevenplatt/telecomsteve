@@ -28,6 +28,7 @@ import {
 	PortfolioPage,
 	ResearchPage,
 	ResumePage,
+	TestPage,
 } from "./pages";
 
 const navLinks = [
@@ -35,6 +36,7 @@ const navLinks = [
 	{ label: "Resume", to: "/resume" },
 	{ label: "Research", to: "/research" },
 	{ label: "Portfolio", to: "/portfolio" },
+	{ label: "Test", to: "/test" },
 ];
 
 type NavLinkItemProps = {
@@ -82,7 +84,7 @@ function SiteLayout() {
 				minH="100vh"
 				bg="white"
 				color="gray.600"
-				fontFamily="Lato, sans-serif"
+				fontFamily="'Roboto Mono', monospace"
 			>
 				<Box
 					display={{ base: "block", lg: "none" }}
@@ -135,18 +137,28 @@ function SiteLayout() {
 								isActive={location.pathname === link.to}
 							/>
 						))}
-						<Box pt={12} color="gray.500" fontSize="sm">
-							<Text>Template:</Text>
-							<Link
-								href="https://github.com/stevenplatt/ResearchEng-portfolio"
-								target="_blank"
-								rel="noreferrer noopener"
-								color="gray.500"
-							>
-								ResearchEng Portfolio
-							</Link>
-						</Box>
 					</Stack>
+					<Box
+						position="absolute"
+						bottom="0"
+						left="0"
+						w="100%"
+						px={8}
+						pb={12}
+						textAlign="center"
+						color="gray.500"
+						fontSize="sm"
+					>
+						<Text>Template:</Text>
+						<Link
+							href="https://github.com/stevenplatt/ResearchEng-portfolio"
+							target="_blank"
+							rel="noreferrer noopener"
+							color="gray.500"
+						>
+							ResearchEng Portfolio
+						</Link>
+					</Box>
 				</Box>
 
 				<Box
@@ -168,36 +180,45 @@ function SiteLayout() {
 							telecomsteve
 						</DrawerHeader>
 						<DrawerBody
+							position="relative"
 							display="flex"
 							alignItems="center"
 							justifyContent="center"
 						>
-							<VStack gap={6} align="stretch" w="100%" maxW="320px">
-								<VStack gap={6} align="center" w="100%" textAlign="center">
-									{navLinks.map((link) => (
-										<Box key={link.label} w="100%">
-											<NavLinkItem
-												to={link.to}
-												label={link.label}
-												fontSize="20px"
-												isActive={location.pathname === link.to}
-												onClick={closeDrawer}
-											/>
-										</Box>
-									))}
-								</VStack>
-								<Box pt={8} color="gray.500" fontSize="sm" textAlign="center">
-									<Text>Template:</Text>
-									<Link
-										href="https://github.com/stevenplatt/ResearchEng-portfolio"
-										target="_blank"
-										rel="noreferrer noopener"
-										color="gray.500"
-									>
-										ResearchEng Portfolio
-									</Link>
-								</Box>
+							<VStack gap={6} align="center" w="100%" maxW="320px" textAlign="center">
+								{navLinks.map((link) => (
+									<Box key={link.label} w="100%">
+										<NavLinkItem
+											to={link.to}
+											label={link.label}
+											fontSize="20px"
+											isActive={location.pathname === link.to}
+											onClick={closeDrawer}
+										/>
+									</Box>
+								))}
 							</VStack>
+							<Box
+								position="absolute"
+								bottom="0"
+								left="0"
+								w="100%"
+								px={6}
+								pb={8}
+								color="gray.500"
+								fontSize="sm"
+								textAlign="center"
+							>
+								<Text>Template:</Text>
+								<Link
+									href="https://github.com/stevenplatt/ResearchEng-portfolio"
+									target="_blank"
+									rel="noreferrer noopener"
+									color="gray.500"
+								>
+									ResearchEng Portfolio
+								</Link>
+							</Box>
 						</DrawerBody>
 					</DrawerContent>
 				</DrawerPositioner>
@@ -214,6 +235,7 @@ function App() {
 				<Route path="resume" element={<ResumePage />} />
 				<Route path="research" element={<ResearchPage />} />
 				<Route path="portfolio" element={<PortfolioPage />} />
+				<Route path="test" element={<TestPage />} />
 				<Route path="*" element={<NotFoundPage />} />
 			</Route>
 		</Routes>
