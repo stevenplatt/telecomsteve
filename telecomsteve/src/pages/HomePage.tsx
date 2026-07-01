@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { Box, Image, VStack } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 
 // Ported from the original Flask site's text_scramble.js
 // credit: https://codepen.io/khalilliu/pen/RKvZKX
@@ -17,7 +17,8 @@ class TextScramble {
   }
 
   setText(newText: string) {
-    const oldText = this.el.innerText
+    // `innerText` is undefined in non-rendering DOMs (e.g. jsdom); fall back safely.
+    const oldText = this.el.innerText || ''
     const length = Math.max(oldText.length, newText.length)
     const promise = new Promise<void>((resolve) => (this.resolve = resolve))
 
@@ -79,7 +80,7 @@ const phrases = [
   'Operate peer-to-peer without infrastructure',
 ]
 
-export function TestPage() {
+export function HomePage() {
   const scrambleRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -90,6 +91,7 @@ export function TestPage() {
     let counter = 0
     let timeoutId: ReturnType<typeof setTimeout>
     let cancelled = false
+    let running = false
 
     const next = () => {
       if (cancelled) return
@@ -100,42 +102,40 @@ export function TestPage() {
       counter = (counter + 1) % phrases.length
     }
 
-    next()
+    // Kick off the loop exactly once, as soon as the tab is visible.
+    // (requestAnimationFrame is paused while a tab is hidden, so if the page
+    // loads in a background tab we start the moment it becomes visible.)
+    const start = () => {
+      if (cancelled || running || document.visibilityState !== "visible") return
+      running = true
+      next()
+    }
+
+    start()
+    document.addEventListener("visibilitychange", start)
 
     return () => {
       cancelled = true
       clearTimeout(timeoutId)
       cancelAnimationFrame(fx.frameRequest)
+      document.removeEventListener("visibilitychange", start)
     }
   }, [])
 
   return (
-    <VStack gap={16} align="stretch">
-      <Box display="flex" justifyContent={{ base: 'center', lg: 'flex-end' }}>
-        <Image
-          src="/img/telecomsteve_logo.png"
-          alt="telecomsteve DevOps consulting logo"
-          w={{ base: '200px', lg: '300px' }}
-          h="auto"
-        />
-      </Box>
-
-      <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        minH={{ base: '120px', lg: '240px' }}
-      >
-        <Box
-          ref={scrambleRef}
-          className="text-scramble"
-          color="#3498db"
-          fontWeight="100"
-          fontSize={{ base: '24px', lg: '48px' }}
-          lineHeight={{ base: '45px', lg: '60px' }}
-          textAlign="center"
-        />
-      </Box>
-    </VStack>
+    <Box
+      ref={scrambleRef}
+      className="text-scramble"
+      color="#3498db"
+      fontWeight="100"
+      fontSize={{ base: '24px', lg: '48px' }}
+      lineHeight={{ base: '45px', lg: '60px' }}
+      textAlign="center"
+      // Only take 90% of the width on mobile, and wrap even mid-scramble (when
+      // spaces are replaced by random chars) so the line never overflows the page.
+      w={{ base: '90%', lg: 'auto' }}
+      maxW="100%"
+      overflowWrap="anywhere"
+    />
   )
 }

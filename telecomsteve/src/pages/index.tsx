@@ -13,7 +13,7 @@ import {
 } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
 
-export { TestPage } from "./TestPage";
+export { HomePage } from "./HomePage";
 
 const InternalLink = chakra(RouterLink);
 
@@ -625,7 +625,7 @@ function PortfolioItem({
 	return (
 		<Box bg="white">
 			<Stack direction={{ base: "column", lg: "row" }} gap={12} align="center">
-				<Box flex="1">
+				<Box data-testid="portfolio-text" flex={{ base: "1", lg: "0 0 65%" }} minW={0}>
 					<Heading as="h3" size="sm" color="#F1C40F">
 						{title}
 					</Heading>
@@ -643,9 +643,16 @@ function PortfolioItem({
 						</Link>
 					</Stack>
 				</Box>
-				<Box flex="1" display="flex" justifyContent="center">
+				<Box
+					data-testid="portfolio-media"
+					flex={{ base: "1", lg: "0 0 35%" }}
+					minW={0}
+					display="flex"
+					justifyContent="center"
+				>
 					<Box
-						w="300px"
+						w="100%"
+						maxW="300px"
 						h="300px"
 						display="flex"
 						alignItems="center"
