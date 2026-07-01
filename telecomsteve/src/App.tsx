@@ -91,7 +91,7 @@ function SiteLayout() {
 				<Box
 					as="header"
 					position="fixed"
-					top={{ base: "16px", lg: "28px" }}
+					top={{ base: "38px", lg: "28px" }}
 					right={{ base: "16px", lg: "48px" }}
 					zIndex={1}
 					border="none"
