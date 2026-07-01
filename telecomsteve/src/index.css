@@ -5,7 +5,7 @@
 }
 
 :root {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Roboto Mono', monospace;
 }
 
 html,
@@ -17,7 +17,8 @@ body,
 body {
   margin: 0;
   background: #ffffff;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 600;
   font-size: 22px;
   line-height: 35px;
   color: #4a5568;
@@ -27,9 +28,18 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Roboto Mono', monospace;
   margin: 0 0 0.5em;
+}
+
+h1,
+h2 {
   font-weight: 700;
+}
+
+h3,
+h4 {
+  font-weight: 600;
 }
 
 h1 {
@@ -51,4 +61,9 @@ h3 {
 h4 {
   font-size: 22px;
   line-height: 1.2;
+}
+
+/* Scrambling characters in the Test page hero animation */
+.dud {
+  color: #8e44ad;
 }
