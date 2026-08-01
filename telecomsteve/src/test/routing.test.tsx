@@ -37,12 +37,14 @@ describe("routing", () => {
 		expect(screen.getByText(/404 - Page Not Found/i)).toBeInTheDocument();
 	});
 
-	it("shows the persistent logo header on every route", () => {
+	it("shows the nav menu logo on every route", () => {
 		for (const route of ["/", "/about", "/research", "/portfolio", "/nope"]) {
 			const { unmount } = renderApp(route);
-			const logo = screen.getByAltText(/telecomsteve/i);
-			expect(logo, `logo on ${route}`).toBeInTheDocument();
-			expect(logo.getAttribute("src")).toBe("/img/telecomsteve_logo.png");
+			const logos = screen.getAllByAltText(/telecomsteve/i);
+			expect(logos.length, `logo on ${route}`).toBeGreaterThan(0);
+			for (const logo of logos) {
+				expect(logo.getAttribute("src")).toBe("/img/telecomsteve_logo.png");
+			}
 			unmount();
 		}
 	});

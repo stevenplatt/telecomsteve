@@ -4,8 +4,8 @@ import { renderApp } from "./render";
 const EXPECTED: Array<[string, string]> = [
 	["Home", "/"],
 	["About Me", "/about"],
-	["Research", "/research"],
 	["Portfolio", "/portfolio"],
+	["Research", "/research"],
 ];
 
 function anchors(container: HTMLElement) {
@@ -25,7 +25,7 @@ describe("navigation", () => {
 		}
 	});
 
-	it("orders the nav as Home, About Me, Research, Portfolio", () => {
+	it("orders the nav as Home, About Me, Portfolio, Research", () => {
 		const { container } = renderApp("/");
 		const order: string[] = [];
 		for (const a of anchors(container)) {

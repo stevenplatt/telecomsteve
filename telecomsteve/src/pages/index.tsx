@@ -23,7 +23,6 @@ export function AboutPage() {
 			<Box
 				display="flex"
 				justifyContent={{ base: "center", lg: "flex-end" }}
-				pr={{ base: 0, lg: "15%" }}
 			>
 				<Image
 					src="/img/steven_platt.webp"
@@ -676,18 +675,6 @@ export function PortfolioPage() {
 					linkLabel="Try Yoptio"
 					imageSrc="/img/gemini.webp"
 					imageAlt="Google Gemini Logo"
-				/>
-
-				<PortfolioItem
-					title="SIP Trunking at Twitter"
-					description={[
-						"During periods of early growth, Twitter deployed a number of isolated and non-standard phone systems that had become expensive and difficult to support. To manage the complexity, Twitter hired me to unify its networks and migrate them to cloud deployment.",
-						"The result was fully virtualized VoIP infrastructure, combined with a Twilio Cloud SIP trunking. This new design reduced Twitter's carrier costs 72%.",
-					]}
-					linkHref="https://www.youtube.com/watch?v=lFzqYgF2MPQ"
-					linkLabel="Watch Conference Talk"
-					imageSrc="/img/twitter_logo.webp"
-					imageAlt="Twitter"
 				/>
 
 				<PortfolioItem

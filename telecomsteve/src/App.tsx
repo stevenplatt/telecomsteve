@@ -34,8 +34,8 @@ import {
 const navLinks = [
 	{ label: "Home", to: "/" },
 	{ label: "About Me", to: "/about" },
-	{ label: "Research", to: "/research" },
 	{ label: "Portfolio", to: "/portfolio" },
+	{ label: "Research", to: "/research" },
 ];
 
 type NavLinkItemProps = {
@@ -86,26 +86,6 @@ function SiteLayout() {
 				color="gray.600"
 				fontFamily="'Roboto Mono', monospace"
 			>
-				<Box
-					as="header"
-					position="fixed"
-					top={{ base: "38px", lg: "28px" }}
-					right={{ base: "16px", lg: "48px" }}
-					zIndex={1}
-					border="none"
-					p="0"
-					lineHeight="0"
-					pointerEvents="none"
-				>
-					<Image
-						src="/img/telecomsteve_logo.png"
-						alt="telecomsteve DevOps consulting logo"
-						w={{ base: "150px", lg: "300px" }}
-						h="auto"
-						display="block"
-					/>
-				</Box>
-
 				<Portal>
 					<Box
 						display={{ base: "block", lg: "none" }}
@@ -148,6 +128,24 @@ function SiteLayout() {
 					alignItems="center"
 					justifyContent="center"
 				>
+					<Box
+						position="absolute"
+						top="0"
+						left="0"
+						w="100%"
+						pt={10}
+						px={8}
+						display="flex"
+						justifyContent="center"
+					>
+						<Image
+							src="/img/telecomsteve_logo.png"
+							alt="telecomsteve DevOps consulting logo"
+							w="100%"
+							maxW="200px"
+							h="auto"
+						/>
+					</Box>
 					<Stack gap={8} textAlign="center" w="100%" px={8}>
 						{navLinks.map((link) => (
 							<NavLinkItem
@@ -190,8 +188,8 @@ function SiteLayout() {
 					display={isHome ? "flex" : undefined}
 					alignItems={isHome ? "center" : undefined}
 					justifyContent={isHome ? "center" : undefined}
-					fontSize={{ base: "18px", lg: "22px" }}
-					lineHeight={{ base: "30px", lg: "35px" }}
+					fontSize={{ base: "18px", lg: "20px" }}
+					lineHeight={{ base: "30px", lg: "32px" }}
 				>
 					<Outlet />
 				</Box>
@@ -209,6 +207,23 @@ function SiteLayout() {
 							alignItems="center"
 							justifyContent="center"
 						>
+							<Box
+								position="absolute"
+								top="0"
+								left="0"
+								w="100%"
+								px={6}
+								pt={8}
+								display="flex"
+								justifyContent="center"
+							>
+								<Image
+									src="/img/telecomsteve_logo.png"
+									alt="telecomsteve DevOps consulting logo"
+									w="150px"
+									h="auto"
+								/>
+							</Box>
 							<VStack gap={6} align="center" w="100%" maxW="320px" textAlign="center">
 								{navLinks.map((link) => (
 									<Box key={link.label} w="100%">
