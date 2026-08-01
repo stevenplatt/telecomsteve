@@ -14,9 +14,10 @@ describe("routing", () => {
 		expect(screen.getByText(/you can call me telecomsteve/i)).toBeInTheDocument();
 	});
 
-	it("renders the Resume page at /resume", () => {
-		renderApp("/resume");
-		expect(screen.getByRole("heading", { name: /^Summary$/i })).toBeInTheDocument();
+	it("renders the resume content on the About Me page", () => {
+		renderApp("/about");
+		expect(screen.getByRole("heading", { name: /Areas of Expertise/i })).toBeInTheDocument();
+		expect(screen.getByRole("heading", { name: /^Experience$/i })).toBeInTheDocument();
 	});
 
 	it("renders the Research page at /research", () => {
@@ -37,7 +38,7 @@ describe("routing", () => {
 	});
 
 	it("shows the persistent logo header on every route", () => {
-		for (const route of ["/", "/about", "/resume", "/research", "/portfolio", "/nope"]) {
+		for (const route of ["/", "/about", "/research", "/portfolio", "/nope"]) {
 			const { unmount } = renderApp(route);
 			const logo = screen.getByAltText(/telecomsteve/i);
 			expect(logo, `logo on ${route}`).toBeInTheDocument();

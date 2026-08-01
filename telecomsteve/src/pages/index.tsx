@@ -76,35 +76,6 @@ export function AboutPage() {
 					GitHub
 				</Link>
 			</HStack>
-		</Stack>
-	);
-}
-
-export function ResumePage() {
-	return (
-		<Stack gap={12}>
-			<Box>
-				<Heading as="h2" size="md">
-					Steven Platt, PhD
-				</Heading>
-				<Text>Platform &amp; Infrastructure Engineer, San Francisco, CA</Text>
-			</Box>
-
-			<Box>
-				<Heading as="h3" size="sm" color="green">
-					Summary
-				</Heading>
-				<Text>
-					Engineering Leader and PhD Researcher specializing in Blockchain
-					Systems Design and cloud automation. Proven track record of delivering
-					secure, cost-efficient infrastructure for complex distributed systems,
-					including Layer-1 blockchains and AI-powered platforms. Expert in
-					aligning technical architecture with business goals, driving
-					significant cost reductions (up to 72%), and leading high-performance
-					teams to solve critical scalability and security challenges in
-					decentralized environments.
-				</Text>
-			</Box>
 
 			<Box>
 				<Heading as="h3" size="sm" color="green">

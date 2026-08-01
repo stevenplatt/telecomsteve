@@ -29,13 +29,11 @@ import {
 	NotFoundPage,
 	PortfolioPage,
 	ResearchPage,
-	ResumePage,
 } from "./pages";
 
 const navLinks = [
 	{ label: "Home", to: "/" },
 	{ label: "About Me", to: "/about" },
-	{ label: "Resume", to: "/resume" },
 	{ label: "Research", to: "/research" },
 	{ label: "Portfolio", to: "/portfolio" },
 ];
@@ -259,7 +257,6 @@ function App() {
 			<Route element={<SiteLayout />}>
 				<Route index element={<HomePage />} />
 				<Route path="about" element={<AboutPage />} />
-				<Route path="resume" element={<ResumePage />} />
 				<Route path="research" element={<ResearchPage />} />
 				<Route path="portfolio" element={<PortfolioPage />} />
 				<Route path="*" element={<NotFoundPage />} />
