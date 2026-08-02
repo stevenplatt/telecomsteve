@@ -40,19 +40,31 @@ test("mobile drawer opens and closes via the always-on-top hamburger", async ({
 	await expect(aboutLink).toHaveCount(0);
 });
 
-test("mobile logo is vertically centered with the hamburger", async ({ page }, testInfo) => {
+test("mobile drawer shows the logo centered at its top", async ({ page }, testInfo) => {
 	test.skip(testInfo.project.name !== "mobile", "mobile only");
 	await page.goto("/");
-	const btn = await page.locator('button[aria-label="Toggle navigation menu"]').boundingBox();
-	const logo = await page.getByAltText(/telecomsteve/i).boundingBox();
-	expect(btn && logo).toBeTruthy();
-	if (btn && logo) {
-		const btnCenter = btn.y + btn.height / 2;
-		const logoCenter = logo.y + logo.height / 2;
+
+	// The logo lives inside the drawer on mobile, so it is hidden until opened.
+	// (The desktop sidebar copy is also in the DOM, so scope to the dialog.)
+	await expect(page.getByAltText(/telecomsteve/i)).toBeHidden();
+
+	await page.locator('button[aria-label="Toggle navigation menu"]').click();
+	const logo = page.getByRole("dialog").getByAltText(/telecomsteve/i);
+	await expect(logo).toBeVisible();
+
+	// Let the slide-in animation settle before measuring.
+	await page.waitForTimeout(500);
+	const box = await logo.boundingBox();
+	const drawer = await page.getByRole("dialog").boundingBox();
+	expect(box && drawer).toBeTruthy();
+	if (box && drawer) {
+		const logoCenter = box.x + box.width / 2;
+		const drawerCenter = drawer.x + drawer.width / 2;
 		expect(
-			Math.abs(btnCenter - logoCenter),
-			"logo/hamburger vertical-center delta (px)",
-		).toBeLessThanOrEqual(4);
+			Math.abs(logoCenter - drawerCenter),
+			"logo centered within the drawer",
+		).toBeLessThanOrEqual(24);
+		expect(box.y - drawer.y, "logo floats near the drawer top").toBeLessThanOrEqual(120);
 	}
 });
 
@@ -61,7 +73,7 @@ test("mobile nav link navigates and closes the drawer", async ({ page }, testInf
 	await page.goto("/");
 
 	await page.locator('button[aria-label="Toggle navigation menu"]').click();
-	await page.getByRole("link", { name: "Resume", exact: true }).click();
-	await expect(page).toHaveURL(/\/resume$/);
-	await expect(page.locator("body")).toContainText("Summary");
+	await page.getByRole("link", { name: "Research", exact: true }).click();
+	await expect(page).toHaveURL(/\/research$/);
+	await expect(page.locator("body")).toContainText("Research Activity");
 });

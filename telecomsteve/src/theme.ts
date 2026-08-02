@@ -14,6 +14,14 @@ const themeConfig = defineConfig({
 				heading: { value: "'Roboto Mono', monospace" },
 				body: { value: "'Roboto Mono', monospace" },
 			},
+			colors: {
+				brand: {
+					blue: { value: "#3498db" },
+					yellow: { value: "#f1c40f" },
+					red: { value: "#e74c3c" },
+					green: { value: "#008000" },
+				},
+			},
 		},
 	},
 });

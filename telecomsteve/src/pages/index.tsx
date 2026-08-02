@@ -35,7 +35,7 @@ export function AboutPage() {
 			</Box>
 
 			<Box>
-				<Heading as="h1" size="lg" color="#f1c40f">
+				<Heading as="h1" size="lg" color="brand.yellow">
 					Steven Platt, PhD
 				</Heading>
 				<Stack gap={6} pt={6}>
@@ -62,7 +62,7 @@ export function AboutPage() {
 					href="https://www.linkedin.com/in/telecomsteve"
 					target="_blank"
 					rel="noreferrer noopener"
-					color="#3498db"
+					color="brand.blue"
 				>
 					LinkedIn
 				</Link>
@@ -70,14 +70,14 @@ export function AboutPage() {
 					href="https://github.com/stevenplatt/telecomsteve-flask"
 					target="_blank"
 					rel="noreferrer noopener"
-					color="#3498db"
+					color="brand.blue"
 				>
 					GitHub
 				</Link>
 			</HStack>
 
 			<Box>
-				<Heading as="h3" size="sm" color="green">
+				<Heading as="h3" size="sm" color="brand.green">
 					Areas of Expertise
 				</Heading>
 				<ListRoot listStyleType="disc" gap={6} pl={10}>
@@ -110,38 +110,37 @@ export function AboutPage() {
 			</Box>
 
 			<Box>
-				<Heading as="h3" size="sm" color="green">
+				<Heading as="h3" size="sm" color="brand.green">
 					Experience
 				</Heading>
 				<Stack gap={10} pt={4}>
 					<Box>
 						<Heading as="h4" size="sm">
-							Stack Dyno
+							Spenditure
 						</Heading>
 						<Text fontStyle="italic">Founder, Feb 2024 - current</Text>
 						<ListRoot listStyleType="disc" gap={4} pl={10} pt={4}>
 							<ListItem>
-								Built a Google Cloud-focused FinOps product as a monorepo with
-								three React + TypeScript apps (marketing site, customer
-								dashboard, reseller console), including interactive
-								spend/optimization visualizations and infrastructure topologies
-								via D3.js.
+								Built Spenditure, a Google Cloud-focused FinOps platform, as a
+								monorepo pairing a React + TypeScript dashboard (public
+								marketing site plus company, reseller, and admin views) with a
+								FastAPI + GraphQL backend persisted in Firestore.
 							</ListItem>
 							<ListItem>
-								Developed a FastAPI backend that securely ingests customer
-								service-account credentials and performs read-only queries
-								against BigQuery Billing Export to power live spending views.
+								Developed a read-only ingestion service that securely queries
+								customer BigQuery Billing Export data to power live spending
+								and optimization views, without ever modifying customer cloud
+								resources.
 							</ListItem>
 							<ListItem>
-								Engineered a FinOps answer engine using custom Model Context
-								Protocol (MCP) and RAG workflows to autonomously resolve billing
-								queries.
+								Engineered a FinOps answer engine using in-process Model
+								Context Protocol (MCP) tools and Gemini-powered chat to
+								autonomously resolve billing queries.
 							</ListItem>
 							<ListItem>
-								Productionized the Stack Dyno platform to support SaaS
-								whitelabeling using GitHub Actions, Google Kubernetes Engine,
-								and Caddy to automate ingress, routing, and SSL certificate
-								creation with customer-managed domains.
+								Productionized multi-reseller tenancy and whitelabeling with
+								GitHub Actions CI/CD, Cloud Run deployments fronted by Auth0,
+								and infrastructure managed end-to-end with Terraform.
 							</ListItem>
 						</ListRoot>
 					</Box>
@@ -261,7 +260,7 @@ export function AboutPage() {
 			</Box>
 
 			<Box>
-				<Heading as="h3" size="sm" color="green">
+				<Heading as="h3" size="sm" color="brand.green">
 					Technical Skills
 				</Heading>
 				<ListRoot listStyleType="disc" gap={6} pl={10}>
@@ -297,7 +296,7 @@ export function AboutPage() {
 			</Box>
 
 			<Box>
-				<Heading as="h3" size="sm" color="green">
+				<Heading as="h3" size="sm" color="brand.green">
 					Education
 				</Heading>
 				<ListRoot listStyleType="disc" gap={4} pl={10}>
@@ -334,7 +333,7 @@ export function ResearchPage() {
 			</Box>
 
 			<Box>
-				<Heading as="h3" size="sm" color="#E74C3C">
+				<Heading as="h3" size="sm" color="brand.red">
 					Standards Development
 				</Heading>
 				<Stack gap={4} pt={4}>
@@ -352,7 +351,7 @@ export function ResearchPage() {
 			</Box>
 
 			<Box>
-				<Heading as="h3" size="sm" color="#E74C3C">
+				<Heading as="h3" size="sm" color="brand.red">
 					Publications
 				</Heading>
 				<Stack gap={10} pt={4}>
@@ -526,7 +525,7 @@ export function ResearchPage() {
 			</Box>
 
 			<Box>
-				<Heading as="h3" size="sm" color="#E74C3C">
+				<Heading as="h3" size="sm" color="brand.red">
 					Invited Talks
 				</Heading>
 				<Stack gap={4} pt={4}>
@@ -596,7 +595,7 @@ function PortfolioItem({
 		<Box bg="white">
 			<Stack direction={{ base: "column", lg: "row" }} gap={12} align="center">
 				<Box data-testid="portfolio-text" flex={{ base: "1", lg: "0 0 65%" }} minW={0}>
-					<Heading as="h3" size="sm" color="#F1C40F">
+					<Heading as="h3" size="sm" color="brand.yellow">
 						{title}
 					</Heading>
 					<Stack gap={6} pt={4}>
@@ -654,15 +653,15 @@ export function PortfolioPage() {
 
 			<Stack gap={14}>
 				<PortfolioItem
-					title="Stack Dyno"
+					title="Spenditure"
 					description={[
-						'I built Stack Dyno as a Google Cloud-focused FinOps platform with spend and infrastructure views backed by a secure FastAPI service that reads BigQuery Billing Export data. I am most proud of its included "Cloud Map" feature, which is unique among FinOps tools, allowing users to see a 3D map of their deployments, combined with costs.',
-						"To make the product feel like a live partner, I added an MCP + RAG AI agent for billing questions and allowed whitelabeling using Kubernetes and Caddy to automate ingress, routing, and SSL for customer-owned domains.",
+						'I built Spenditure as a Google Cloud-focused FinOps platform with spend and infrastructure views backed by a secure FastAPI + GraphQL service that reads BigQuery Billing Export data. I am most proud of its included "Cloud Map" feature, which is unique among FinOps tools, allowing users to see a 3D map of their deployments, combined with costs.',
+						"To make the product feel like a live partner, I added an answer engine built on in-process MCP tools and Gemini-powered chat for billing questions, with multi-reseller whitelabeling deployed to Cloud Run behind Auth0 and managed with Terraform.",
 					]}
-					linkHref="https://stackdyno.com"
+					linkHref="https://spenditure.com"
 					linkLabel="Visit Webpage"
-					imageSrc="/img/stackdyno.png"
-					imageAlt="Stack Dyno Logo"
+					imageSrc="/img/spenditure_logo.png"
+					imageAlt="Spenditure Logo"
 				/>
 
 				<PortfolioItem
@@ -673,19 +672,8 @@ export function PortfolioPage() {
 					]}
 					linkHref="https://yoptio.com"
 					linkLabel="Try Yoptio"
-					imageSrc="/img/gemini.webp"
-					imageAlt="Google Gemini Logo"
-				/>
-
-				<PortfolioItem
-					title="5G Mobility Simulator"
-					description={[
-						"A simulator to recreate the mobility and tower association of a device in a 5G network. The system uses random walk behavior and monte carlo sampling to show connection behavior across 10,000 simulations.",
-					]}
-					linkHref="https://github.com/stevenplatt/5G-mobility-simulator"
-					linkLabel="Gitub Source"
-					imageSrc="/img/python_logo.webp"
-					imageAlt="Python Programming"
+					imageSrc="/img/yoptio_logo.png"
+					imageAlt="Yoptio Logo"
 				/>
 			</Stack>
 		</Stack>

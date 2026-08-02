@@ -1,69 +1,67 @@
+:root {
+	/* Shared design tokens. Component-level (Chakra) colors live in src/theme.ts;
+	   these vars cover plain-CSS styling only. */
+	--font-mono: "Roboto Mono", monospace;
+	--color-body-text: #4a5568;
+	--color-heading-accent: #f1c40f;
+	--color-scramble-dud: #8e44ad;
+	--font-size-body: 22px;
+	--line-height-body: 35px;
+
+	font-family: var(--font-mono);
+}
+
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
-}
-
-:root {
-  font-family: 'Roboto Mono', monospace;
+	box-sizing: border-box;
 }
 
 html,
 body,
 #root {
-  height: 100%;
+	height: 100%;
 }
 
 body {
-  margin: 0;
-  background: #ffffff;
-  font-family: 'Roboto Mono', monospace;
-  font-weight: 600;
-  font-size: 22px;
-  line-height: 35px;
-  color: #4a5568;
+	margin: 0;
+	background: #fff;
+	font-size: var(--font-size-body);
+	line-height: var(--line-height-body);
+	color: var(--color-body-text);
 }
 
+/* Font weights are set globally in src/theme.ts (globalCss) because they must
+   win over Chakra's component recipes; only sizes and spacing live here. */
 h1,
 h2,
 h3,
 h4 {
-  font-family: 'Roboto Mono', monospace;
-  margin: 0 0 0.5em;
-}
-
-h1,
-h2 {
-  font-weight: 700;
-}
-
-h3,
-h4 {
-  font-weight: 600;
+	margin: 0 0 0.5em;
 }
 
 h1 {
-  font-size: 44px;
-  line-height: 1.1;
-  color: #f1c40f;
+	font-size: 44px;
+	line-height: 1.1;
+	color: var(--color-heading-accent);
 }
 
 h2 {
-  font-size: 33px;
-  line-height: 1.2;
+	font-size: 33px;
+	line-height: 1.2;
 }
 
 h3 {
-  font-size: 26px;
-  line-height: 1.2;
+	font-size: 26px;
+	line-height: 1.2;
 }
 
 h4 {
-  font-size: 22px;
-  line-height: 1.2;
+	font-size: 22px;
+	line-height: 1.2;
 }
 
-/* Scrambling characters in the Test page hero animation */
+/* Scrambling characters in the home page hero animation */
 .dud {
-  color: #8e44ad;
+	color: var(--color-scramble-dud);
 }

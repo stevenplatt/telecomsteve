@@ -188,8 +188,8 @@ function SiteLayout() {
 					display={isHome ? "flex" : undefined}
 					alignItems={isHome ? "center" : undefined}
 					justifyContent={isHome ? "center" : undefined}
-					fontSize={{ base: "18px", lg: "20px" }}
-					lineHeight={{ base: "30px", lg: "32px" }}
+					fontSize={{ base: "17px", lg: "18px" }}
+					lineHeight={{ base: "28px", lg: "30px" }}
 				>
 					<Outlet />
 				</Box>
