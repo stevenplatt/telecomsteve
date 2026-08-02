@@ -62,7 +62,9 @@ Unit tests run under Vitest with **100% coverage enforced** — the thresholds i
 statement, branch, function, or line coverage drops below 100%. Playwright
 covers end-to-end flows in both desktop and mobile viewports.
 
-The [CI workflow](.github/workflows/ci.yml) runs lint, the unit-test coverage
-gate, a production build, and the e2e suite on every push and pull request.
+The [CI workflow](.github/workflows/ci.yml) runs a security audit (`npm audit`
+fails the build on a vulnerability of any severity), lint, the unit-test
+coverage gate, a production build, and the e2e suite on every push and pull
+request.
 The coverage job is the required status check that will gate code deployment
 once a deploy workflow is added.

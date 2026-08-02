@@ -27,6 +27,10 @@ jobs:
           cache-dependency-path: telecomsteve/package-lock.json
       - name: Install dependencies
         run: npm ci
+      - name: Security audit (fail on any vulnerability)
+        # --audit-level=low makes npm audit exit non-zero for findings of ANY
+        # severity, so no warning-level or critical advisory can reach main.
+        run: npm audit --audit-level=low
       - name: Lint
         run: npm run lint
       - name: Unit tests with enforced 100% coverage
