@@ -29,8 +29,6 @@ Built with React 19, TypeScript, Vite, and Chakra UI. The app lives in the
 | --- | --- |
 | ![Portfolio page](docs/img/portfolio.png) | ![Research page](docs/img/research.png) |
 
-<img src="docs/img/mobile-nav.png" alt="Mobile navigation drawer" width="280" />
-
 ## Getting started
 
 ```bash
@@ -66,5 +64,12 @@ The [CI workflow](.github/workflows/ci.yml) runs a security audit (`npm audit`
 fails the build on a vulnerability of any severity), lint, the unit-test
 coverage gate, a production build, and the e2e suite on every push and pull
 request.
-The coverage job is the required status check that will gate code deployment
-once a deploy workflow is added.
+
+On pushes to `main`, once the coverage gate and e2e suite both pass, the
+`deploy` job builds the app and syncs `dist/` to the `gs://telecomsteve.com`
+bucket that serves [telecomsteve.com](https://telecomsteve.com). (The
+[ResearchEng-Portfolio](https://github.com/stevenplatt/ResearchEng-Portfolio)
+template repo previously deployed this site; it continues to serve
+demo.telecomsteve.com only.) Deployment requires the `GOOGLE_CREDENTIALS`
+repository secret (a GCP service-account key with write access to the
+bucket).

@@ -1,15 +1,22 @@
-# CI for the telecomsteve site.
+# CI/CD for the telecomsteve site.
 #
-# The `test` job enforces 100% unit-test coverage (thresholds live in
-# telecomsteve/vite.config.ts, so a drop below 100% fails the build). This job
-# is the required status check that will gate code deployment once a deploy
-# workflow is added.
+# The `test` job enforces a zero-vulnerability npm audit and 100% unit-test
+# coverage (thresholds live in telecomsteve/vite.config.ts, so a drop below
+# 100% fails the build). The `deploy` job publishes the built app to the
+# gs://telecomsteve.com bucket (migrated from the ResearchEng-Portfolio repo,
+# which continues to serve demo.telecomsteve.com) and only runs on pushes to
+# main after `test` and `e2e` both pass.
 name: CI
 
 on:
   push:
     branches: [main]
   pull_request:
+
+# Ensure only one workflow runs at a time per ref.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   test:
@@ -57,3 +64,42 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: Run e2e suite
         run: npx playwright test
+
+  deploy:
+    name: Deploy to telecomsteve.com
+    # The coverage gate (test) and e2e suite gate every deployment.
+    needs: [test, e2e]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: telecomsteve
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: telecomsteve/package-lock.json
+      - name: Install dependencies
+        run: npm ci
+      - name: Build
+        run: npm run build
+
+      - name: Google Auth
+        id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
+
+      - name: Setup Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Upload Production Website
+        # rsync (rather than cp) so files removed from the app are also
+        # removed from the bucket. The error page is index.html so deep links
+        # into the SPA (/about, /research, ...) resolve client-side; the app
+        # renders its own 404 view for unknown routes.
+        run: |
+          gcloud storage rsync dist gs://telecomsteve.com --recursive --delete-unmatched-destination-objects
+          gcloud storage buckets update gs://telecomsteve.com --web-main-page-suffix=index.html --web-error-page=index.html
